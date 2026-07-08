@@ -1,12 +1,19 @@
 const downloadButton = document.getElementById("download-completed");
 const savePdfButton = document.getElementById("save-pdf");
+const wordLimitedFields = [...document.querySelectorAll("[data-max-words]")];
+
+function limitWords(value, maxWords) {
+  const words = value.trim().split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return value;
+  return words.slice(0, maxWords).join(" ");
+}
 
 function applyCurrentValuesToClone(clone) {
-  const originalInputs = [...document.querySelectorAll("input")];
-  const clonedInputs = [...clone.querySelectorAll("input")];
+  const originalFields = [...document.querySelectorAll("input, textarea")];
+  const clonedFields = [...clone.querySelectorAll("input, textarea")];
 
-  originalInputs.forEach((input, index) => {
-    const clonedInput = clonedInputs[index];
+  originalFields.forEach((input, index) => {
+    const clonedInput = clonedFields[index];
     if (!clonedInput) return;
 
     if (input.type === "checkbox") {
@@ -15,6 +22,11 @@ function applyCurrentValuesToClone(clone) {
       } else {
         clonedInput.removeAttribute("checked");
       }
+      return;
+    }
+
+    if (input.tagName === "TEXTAREA") {
+      clonedInput.textContent = input.value;
       return;
     }
 
@@ -30,9 +42,22 @@ function buildCompletedDocument() {
   clone.querySelectorAll("input").forEach((input) => {
     input.setAttribute("disabled", "disabled");
   });
+  clone.querySelectorAll("textarea").forEach((textarea) => {
+    textarea.setAttribute("disabled", "disabled");
+  });
 
   return `<!doctype html>\n${clone.outerHTML}`;
 }
+
+wordLimitedFields.forEach((field) => {
+  field.addEventListener("input", () => {
+    const maxWords = Number(field.dataset.maxWords || 20);
+    const limitedValue = limitWords(field.value, maxWords);
+    if (field.value !== limitedValue) {
+      field.value = limitedValue;
+    }
+  });
+});
 
 downloadButton?.addEventListener("click", () => {
   const html = buildCompletedDocument();
