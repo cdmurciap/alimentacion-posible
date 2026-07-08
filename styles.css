@@ -744,17 +744,10 @@ input[type="checkbox"] {
     overflow: hidden;
     box-shadow: none;
     border: 0;
-    break-after: page;
-    page-break-after: always;
     break-inside: avoid;
     page-break-inside: avoid;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-  }
-
-  .page:last-child {
-    break-after: auto;
-    page-break-after: auto;
   }
 
   .hero {
