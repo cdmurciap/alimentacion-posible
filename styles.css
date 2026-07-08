@@ -724,7 +724,7 @@ input[type="checkbox"] {
 
   html,
   body {
-    width: 210mm;
+    width: auto;
     margin: 0;
     background: white;
   }
@@ -738,16 +738,20 @@ input[type="checkbox"] {
   .page {
     display: block;
     width: 210mm;
-    height: 297mm;
+    min-height: 0;
+    height: auto;
     margin: 0;
     padding: 9mm;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: none;
     border: 0;
-    break-inside: avoid;
-    page-break-inside: avoid;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+  }
+
+  .page + .page {
+    break-before: page;
+    page-break-before: always;
   }
 
   .hero {
