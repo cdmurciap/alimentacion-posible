@@ -1,4 +1,5 @@
 const downloadButton = document.getElementById("download-completed");
+const savePdfButton = document.getElementById("save-pdf");
 
 function applyCurrentValuesToClone(clone) {
   const originalInputs = [...document.querySelectorAll("input")];
@@ -44,4 +45,8 @@ downloadButton?.addEventListener("click", () => {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+});
+
+savePdfButton?.addEventListener("click", () => {
+  window.print();
 });

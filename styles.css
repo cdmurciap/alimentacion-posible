@@ -440,9 +440,17 @@ input[type="checkbox"] {
   font-size: 13px;
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 11px;
+  padding: 0;
+  border: 0;
+}
+
 .cta button {
   min-height: 36px;
-  margin-top: 11px;
   padding: 0 16px;
   color: var(--chocolate);
   background: var(--lima);
@@ -471,6 +479,233 @@ input[type="checkbox"] {
 .cta em {
   font-style: normal;
   opacity: 0.82;
+}
+
+@media screen and (max-width: 1100px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: var(--paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  strong,
+  span,
+  label,
+  article,
+  input {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .document {
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 22px 18px;
+    border: 0;
+    box-shadow: none;
+    page-break-after: auto;
+  }
+
+  .page + .page {
+    padding-top: 4px;
+  }
+
+  .hero {
+    gap: 14px;
+    padding-bottom: 14px;
+  }
+
+  .hero > div {
+    min-width: 0;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: 33px;
+    line-height: 1;
+  }
+
+  .headline {
+    font-size: 17px;
+  }
+
+  .logo {
+    width: 66px;
+  }
+
+  .intro {
+    margin: 14px 0;
+    padding: 12px 13px;
+  }
+
+  .intro p,
+  .intro strong {
+    display: block;
+    font-size: 15px;
+  }
+
+  .two-col,
+  .parts-grid,
+  .response-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col {
+    gap: 14px;
+  }
+
+  .title-row {
+    align-items: flex-start;
+  }
+
+  h2 {
+    font-size: 17px;
+    line-height: 1.15;
+  }
+
+  .helper {
+    margin-left: 36px;
+    font-size: 12px;
+  }
+
+  .chips,
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chips label,
+  .action-grid label {
+    justify-content: flex-start;
+    min-height: 40px;
+    padding: 10px 11px;
+    text-align: left;
+  }
+
+  .chips label span,
+  .action-grid label span,
+  .check-list label span,
+  .support-list label span {
+    min-width: 0;
+  }
+
+  input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+  }
+
+  .check-list li,
+  .support-list li {
+    font-size: 13px;
+  }
+
+  .check-list label,
+  .support-list label {
+    min-height: 40px;
+    padding: 10px 11px;
+  }
+
+  .small-copy,
+  .support p,
+  .mesa-block p {
+    font-size: 14px;
+  }
+
+  .quote {
+    margin-top: 16px;
+    font-size: 20px;
+  }
+
+  .parts-grid article {
+    min-height: 0;
+  }
+
+  .parts-grid p,
+  .note,
+  .meal-groups p,
+  .response-help {
+    font-size: 13px;
+  }
+
+  .meal-groups article,
+  .response-block,
+  .mesa-block,
+  .support {
+    padding: 12px;
+  }
+
+  .response-grid label {
+    font-size: 12px;
+  }
+
+  .response-grid input {
+    min-height: 42px;
+    font-size: 14px;
+  }
+
+  .cta {
+    margin-top: 16px;
+    padding: 16px;
+  }
+
+  .cta p {
+    font-size: 19px;
+  }
+
+  .cta span {
+    font-size: 14px;
+  }
+
+  .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cta button {
+    width: 100%;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .cta div:not(.cta-actions) {
+    display: grid;
+    gap: 4px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .logo {
+    width: 56px;
+  }
 }
 
 
