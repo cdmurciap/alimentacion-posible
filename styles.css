@@ -719,19 +719,91 @@ input[type="checkbox"] {
     display: none;
   }
 
+  html,
   body {
+    width: 210mm;
+    margin: 0;
     background: white;
   }
 
   .document {
     display: block;
     padding: 0;
+    gap: 0;
   }
 
   .page {
+    display: block;
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 9mm;
+    overflow: hidden;
     box-shadow: none;
     border: 0;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+  }
+
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .hero {
+    padding-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .headline {
+    font-size: 18px;
+  }
+
+  .intro {
+    margin: 10px 0;
+    padding: 10px 13px;
+  }
+
+  .intro p {
+    font-size: 15px;
+  }
+
+  .intro strong {
+    font-size: 16px;
+  }
+
+  .action-block {
+    margin-top: 10px;
+  }
+
+  .quote {
+    margin-top: 10px;
+    padding: 12px 14px;
+    font-size: 21px;
+  }
+
+  .parts-grid article {
+    min-height: 108px;
+  }
+
+  .response-block,
+  .mesa-block,
+  .cta {
+    margin-top: 8px;
+  }
+
+  .cta {
+    padding: 11px 14px;
+  }
+
+  .cta p {
+    font-size: 20px;
   }
 }
